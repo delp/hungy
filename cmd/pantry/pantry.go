@@ -27,9 +27,9 @@ func additem(w http.ResponseWriter, r *http.Request) {
 
 	item := new(hungy.Item)
 	item.Description = r.FormValue("description")
-	date := r.FormValue("expires")
+	//date := r.FormValue("expires")
 	item.Acquired = time.Now()
-	fmt.Println(item.Acquired)
+	//fmt.Println(item.Acquired)
 
 	//layout := "2006-01-02T15:04:05.000Z"
 	//str := fmt.Sprintf("%sT%sZ", r.FormValue("date"), r.FormValue("time"))
@@ -39,8 +39,6 @@ func additem(w http.ResponseWriter, r *http.Request) {
 	//}
 	//fmt.Println(t)
 
-	fmt.Println(date)
-
 	b, err := json.Marshal(item)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
@@ -49,15 +47,12 @@ func additem(w http.ResponseWriter, r *http.Request) {
 
 	f.Write(b)
 	f.Close()
+	fmt.Println("item added")
 }
 
 func main() {
 	http.HandleFunc("/additem", additem)
 	http.HandleFunc("/", open)
 	http.ListenAndServe(":8080", nil)
-
-	s := hungy.Stockpile{}
-	fmt.Println(s)
-	fmt.Println("foo")
 
 }
