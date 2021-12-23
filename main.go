@@ -1,6 +1,7 @@
-package hungy
+package main
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -48,4 +49,11 @@ func (i *Item) ExpiresAt() time.Time {
 
 func (i *Item) AcquiredAt() time.Time {
 	return i.Acquired
+}
+
+func main() {
+
+	s := Stockpile{}
+	fmt.Println(s)
+	fmt.Println("foo")
 }
