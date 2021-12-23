@@ -1,4 +1,4 @@
-package main
+package hungy
 
 import (
 	"fmt"
@@ -51,9 +51,3 @@ func (i *Item) AcquiredAt() time.Time {
 	return i.Acquired
 }
 
-func main() {
-
-	s := Stockpile{}
-	fmt.Println(s)
-	fmt.Println("foo")
-}
