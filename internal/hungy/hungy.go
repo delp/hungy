@@ -1,7 +1,6 @@
 package hungy
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -50,4 +49,3 @@ func (i *Item) ExpiresAt() time.Time {
 func (i *Item) AcquiredAt() time.Time {
 	return i.Acquired
 }
-
