@@ -1,7 +1,9 @@
 package main
 
 import (
-	github.com/delp/hungy/internal/hungy
+	"fmt"
+
+	"github.com/delp/hungy/internal/hungy"
 )
 
 func main() {
