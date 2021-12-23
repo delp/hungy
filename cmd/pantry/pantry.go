@@ -18,6 +18,7 @@ func open(w http.ResponseWriter, r *http.Request) {
 }
 
 func additem(w http.ResponseWriter, r *http.Request) {
+
 	f, err := os.OpenFile("deck.json", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
@@ -48,6 +49,7 @@ func additem(w http.ResponseWriter, r *http.Request) {
 	f.Write(b)
 	f.Close()
 	fmt.Println("item added")
+	fmt.Fprintf(w, "item added")
 }
 
 func main() {
